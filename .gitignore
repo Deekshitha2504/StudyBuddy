@@ -1,3 +1,7 @@
+```text
+node_modules
+.env
+*.db
 node_modules/
 database.sqlite
 studybuddy.db
