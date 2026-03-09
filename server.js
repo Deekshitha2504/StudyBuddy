@@ -89,4 +89,13 @@ app.post('/timer-state', (req, res) => {
 });
 
 // Start server
-app.listen(5000, () => console.log('Server running at http://localhost:5000'));
+// Dynamic Port for Deployment
+const PORT = process.env.PORT || 5000;
+
+// Persistent Database Path for Railway
+const path = require('path');
+const dbPath = process.env.RAILWAY_VOLUME_MOUNT_PATH 
+  ? path.join(process.env.RAILWAY_VOLUME_MOUNT_PATH, 'database.db') 
+  : path.join(__dirname, 'database.db');
+
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
