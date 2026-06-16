@@ -1,0 +1,21 @@
+# Render Blueprint Specification (render.yaml)
+# For more info: https://render.com/docs/blueprints
+services:
+  - type: web
+    name: study-buddy-backend
+    env: docker
+    
+    # Target Render's 100% Free Tier plan
+    plan: free
+    
+    # Specify paths relative to the repository root
+    dockerfilePath: backend/Dockerfile
+    dockerContext: backend
+    
+    envVars:
+      - key: PORT
+        value: 5000
+      - key: NODE_ENV
+        value: production
+      - key: DATABASE_URL
+        sync: true # Prompts you for your Neon connection string in the Render UI
