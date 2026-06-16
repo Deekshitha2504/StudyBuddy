@@ -18,4 +18,4 @@ services:
       - key: NODE_ENV
         value: production
       - key: DATABASE_URL
-        sync: true # Prompts you for your Neon connection string in the Render UI
+        sync: false # Prompts you for your Neon connection string in the Render UI
